@@ -1,11 +1,15 @@
 # Chip-Seq-Analysis
 
 **H3K27ac ChIP-seq Analysis at Super-Enhancer Regions**
+
 Objective:
 
 Reproduce Figure 6D from Di Stefano et al.: "The RNA Helicase DDX6 Controls Cellular Plasticity by Modulating P-Body Homeostasis" Cell Stem Cell 25(5), 622-638.e13 (2019).
+
 Analysis Focus
+
 Examine how H3K27ac levels (measured by ChIP-sequencing in human embryonic stem cells) change at known super-enhancer regions following DDX6 knockdown.
+
 Data Sources
 • ChIP-seq data: Available as GSE dataset from the Di Stefano et al. paper
 • Super-enhancer coordinates: From Hnisz et al.: "Super-Enhancers in the Control of Cell Identity and Disease" Cell 155(4), 934-947 (2013)
@@ -23,7 +27,9 @@ The full pipeline till alignment is is process-chip-seq.sh
 downloaded from the reference papers
 
 3. This is just an intermediate step I had to do:
+
 The original H1.bed file contained coordinates in hg19 format (from Hnisz et al. 2013)
+
 I aligned our FASTQ data to hg38 reference genome using the bowtie2 index
 This created a coordinate system mismatch - I was looking for hg19 coordinates in hg38-aligned data
 The liftOver conversion fixed this mismatch by converting coordinates from hg19 to hg38
