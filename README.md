@@ -33,11 +33,15 @@ The original H1.bed file contained coordinates in hg19 format (from Hnisz et al.
 I aligned our FASTQ data to hg38 reference genome using the bowtie2 index
 This created a coordinate system mismatch - I was looking for hg19 coordinates in hg38-aligned data
 The liftOver conversion fixed this mismatch by converting coordinates from hg19 to hg38
+
 FASTQ files → Bowtie2 (hg38 reference) → BAM files (hg38 coordinates)
+                                           
                                               ↓
+
 H1.bed (hg19) → LiftOver → H1_hg38.bed → Signal quantification → CORRECTED results
 
 Re-quantify signal with CORRECT hg38 coordinates
+
 echo "=== RE-RUNNING ANALYSIS WITH CORRECT COORDINATES ==="
 
 multiBigwigSummary BED-file --BED H1_hg38_no_chr.bed \
